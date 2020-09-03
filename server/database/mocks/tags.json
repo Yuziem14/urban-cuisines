@@ -1,0 +1,90 @@
+[
+  {
+    "name": "Brazilian",
+    "slug": "brazilian"
+  },
+  {
+    "name": "Japanese",
+    "slug": "japanese"
+  },
+  {
+    "name": "Italian",
+    "slug": "italian"
+  },
+  {
+    "name": "French",
+    "slug": "french"
+  },
+  {
+    "name": "Indian",
+    "slug": "indian"
+  },
+  {
+    "name": "Chinese",
+    "slug": "chinese"
+  },
+  {
+    "name": "Eastern",
+    "slug": "eastern"
+  },
+  {
+    "name": "Mexican",
+    "slug": "mexican"
+  },
+  {
+    "name": "Spanish",
+    "slug": "spanish"
+  },
+  {
+    "name": "American",
+    "slug": "american"
+  },
+  {
+    "name": "British",
+    "slug": "british"
+  },
+  {
+    "name": "Korean",
+    "slug": "korean"
+  },
+  {
+    "name": "Thai",
+    "slug": "thai"
+  },
+  {
+    "name": "Fast Food",
+    "slug": "fast-food"
+  },
+  {
+    "name": "Appetizers",
+    "slug": "appetizers"
+  },
+  {
+    "name": "Pizza",
+    "slug": "pizza"
+  },
+  {
+    "name": "Bakery",
+    "slug": "bakery"
+  },
+  {
+    "name": "Coffe Shop",
+    "slug": "coffe-shop"
+  },
+  {
+    "name": "Pub",
+    "slug": "pub"
+  },
+  {
+    "name": "Vegetarian",
+    "slug": "vegetarian"
+  },
+  {
+    "name": "Barbecue",
+    "slug": "barbecue"
+  },
+  {
+    "name": "Deserts",
+    "slug": "deserts"
+  }
+]
