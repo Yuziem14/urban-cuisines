@@ -1,13 +1,11 @@
 'use strict'
-
-const { castStringAsArray, slugify } = require('../../Utils')
+const { castStringAsArray } = require('../../Utils')
 
 /** @typedef {import('@adonisjs/framework/src/Request')} Request */
 /** @typedef {import('@adonisjs/framework/src/Response')} Response */
 /** @typedef {import('@adonisjs/framework/src/View')} View */
 
-const Helpers = use('Helpers')
-const Restaurant = use('App/Models/Restaurant')
+const RestaurantRepository = use('App/Repositories/RestaurantRepository')
 
 /**
  * Resourceful controller for interacting with restaurants
@@ -23,14 +21,11 @@ class RestaurantController {
    * @param {View} ctx.view
    */
   async index({ request, response }) {
-    const { tags } = request.get()
-    const tagsArray = castStringAsArray(tags)
-    const restaurants = await Restaurant.query()
-      .with('tags')
-      .whereIn('slug', tagsArray)
-      .select('name', 'logo_url', 'latitude', 'longitude')
-      .fetch()
-    return response.json({ ...restaurants.toJSON() })
+    const { tags: tagString } = request.get()
+    const tags = castStringAsArray(tagString)
+    const restaurants = await RestaurantRepository.filterByTags(tags)
+
+    return response.json([...restaurants.toJSON()])
   }
 
   /**
@@ -42,53 +37,27 @@ class RestaurantController {
    * @param {Response} ctx.response
    */
   async store({ request, response }) {
-    const {
-      name,
-      description,
-      phone_number,
-      address,
-      latitude,
-      longitude,
-    } = request.all()
-
-    const tags = castStringAsArray(request.all().tags)
-    const customTags = castStringAsArray(request.all().custom_tags).map(
-      tag => ({
-        name: tag,
-      })
-    )
-
+    const { tags: tagString, custom_tags } = request.all()
+    const tags = castStringAsArray(tagString)
+    const customTags = castStringAsArray(custom_tags).map(tag => ({
+      name: tag,
+    }))
     const logo = request.file('logo', {
       types: ['image'],
     })
 
-    const fileName = `${slugify(
-      logo.clientName.replace(/\.[^/.]+$/g, '')
-    )}_${Date.now()}.${logo.extname}`
-    console.log(logo)
-
-    await logo.move(Helpers.publicPath('uploads'), {
-      name: fileName,
-      overwrite: true,
+    const restaurant = await RestaurantRepository.create({
+      ...request.all(),
+      tags,
+      customTags,
+      logo,
     })
 
-    if (!logo.moved())
-      return response
-        .status(400)
-        .json({ error: 'E_INVALID_FILE', message: 'Cannot process the file' })
-
-    const restaurant = await Restaurant.create({
-      name,
-      description,
-      phone_number,
-      address,
-      latitude,
-      longitude,
-      logo_url: fileName,
-    })
-
-    await restaurant.tags().attach(tags)
-    await restaurant.tags().createMany(customTags)
+    if (!restaurant) {
+      return response.status(400).json({
+        err: 'E_FAILED_TO_CREATE_RESTAURANT',
+      })
+    }
 
     return response.json({ ...restaurant.toJSON() })
   }
@@ -104,7 +73,11 @@ class RestaurantController {
    */
   async show({ params, request, response }) {
     const { id } = params
-    const restaurant = await Restaurant.find(id)
+    const restaurant = await RestaurantRepository.find(id)
+
+    if (!restaurant) {
+      return response.status(400).json({ err: 'NOT_FOUND' })
+    }
 
     return response.json({ ...restaurant.toJSON() })
   }
