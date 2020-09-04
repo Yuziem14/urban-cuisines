@@ -1,4 +1,5 @@
 const Database = use('Database')
+const Env = use('Env')
 const Helpers = use('Helpers')
 
 const Restaurant = use('App/Models/Restaurant')
@@ -25,6 +26,19 @@ class RestaurantRepository {
     }
 
     return newFileName
+  }
+
+  static serialize(restaurants) {
+    restaurants = Array.isArray(restaurants) ? restaurants : [restaurants]
+
+    const serializedRestaurants = restaurants.map(restaurant => ({
+      ...restaurant,
+      logo_url: `${Env.get('HOST_URL')}/uploads/${restaurant.logo_url}`,
+    }))
+
+    return serializedRestaurants.length === 1
+      ? serializedRestaurants[0]
+      : serializedRestaurants
   }
 
   static async all() {
