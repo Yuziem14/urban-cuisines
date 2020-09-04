@@ -20,6 +20,8 @@ Route.get('/', () => {
   return { greeting: 'API Powered by AdonisJS' }
 })
 
+Route.get('tags', 'TagController.index')
+
 Route.resource('restaurants', 'RestaurantController').only([
   'index',
   'store',
