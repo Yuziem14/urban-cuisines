@@ -17,5 +17,11 @@
 const Route = use('Route')
 
 Route.get('/', () => {
-  return { greeting: 'Hello world in JSON' }
+  return { greeting: 'API Powered by AdonisJS' }
 })
+
+Route.resource('restaurants', 'RestaurantController').only([
+  'index',
+  'store',
+  'show',
+])
