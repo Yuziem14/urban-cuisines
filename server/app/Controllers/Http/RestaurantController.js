@@ -24,8 +24,11 @@ class RestaurantController {
     const { tags: tagString } = request.get()
     const tags = castStringAsArray(tagString)
     const restaurants = await RestaurantRepository.filterByTags(tags)
+    const serializedRestaurants = RestaurantRepository.serialize(
+      restaurants.toJSON()
+    )
 
-    return response.json([...restaurants.toJSON()])
+    return response.json([serializedRestaurants].flat())
   }
 
   /**
@@ -58,8 +61,11 @@ class RestaurantController {
         err: 'E_FAILED_TO_CREATE_RESTAURANT',
       })
     }
+    const serializedRestaurant = RestaurantRepository.serialize(
+      restaurant.toJSON()
+    )
 
-    return response.json({ ...restaurant.toJSON() })
+    return response.json({ ...serializedRestaurant })
   }
 
   /**
@@ -79,7 +85,11 @@ class RestaurantController {
       return response.status(400).json({ err: 'NOT_FOUND' })
     }
 
-    return response.json({ ...restaurant.toJSON() })
+    const serializedRestaurant = RestaurantRepository.serialize(
+      restaurant.toJSON()
+    )
+
+    return response.json({ ...serializedRestaurant })
   }
 
   /**
