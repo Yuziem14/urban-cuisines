@@ -3,6 +3,9 @@ node_modules
 package-lock.json
 *.lock
 
+# Uploaded Files
+public/uploads
+
 # Adonis directory for storing tmp files
 tmp
 
