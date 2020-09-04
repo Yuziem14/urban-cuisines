@@ -101,7 +101,7 @@ class RestaurantRepository {
       })
       .select('id', 'name', 'logo_url', 'latitude', 'longitude')
 
-    if (tagSlugs || tagSlugs.length !== 0) {
+    if (tagSlugs.length !== 0) {
       query.whereHas('tags', builder => {
         builder.whereIn('slug', tagSlugs)
       })
