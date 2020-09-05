@@ -47,9 +47,10 @@ span.breakline {
   display: block;
 }
 
-.container {
-  width: 90vw;
+.wrapper {
+  width: 100%;
   max-width: 712px;
+  margin: 0 auto;
 }
 
 @media (min-width: 768px) {
