@@ -1,0 +1,59 @@
+:root {
+  --color-primary: #fc6600;
+  --color-primary-dark: #ec5800;
+  --color-primary-darker: #ff4500;
+  --color-secondary: #f9a826;
+  --color-title: #ffffff;
+  --color-text: #f5f5f5;
+  --color-placeholder: #c1bccc;
+  --color-button: #854ddc;
+  --color-button-darker: #7a3bdb;
+  --color-whatsapp: #04d361;
+  --color-whatsapp-dark: #0bd967;
+  --color-background: #f0f0f7;
+  --color-dark: #555555;
+  font-size: 60%;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body,
+#root {
+  min-height: 100vh;
+}
+
+body {
+  background: var(--color-background);
+}
+
+#root {
+  display: flex;
+}
+
+body,
+input,
+button,
+textarea {
+  font: 500 1.6rem Poppins, sans-serif;
+  color: var(--color-text);
+}
+
+span.breakline {
+  display: block;
+}
+
+.container {
+  width: 90vw;
+  max-width: 712px;
+}
+
+@media (min-width: 768px) {
+  :root {
+    font-size: 62.5%;
+  }
+}
