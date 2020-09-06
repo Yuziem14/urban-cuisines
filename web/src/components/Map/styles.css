@@ -1,0 +1,6 @@
+#map .leaflet-container {
+  width: 100%;
+  min-height: 312px;
+  border-radius: 0.8rem;
+  margin-bottom: 24px;
+}

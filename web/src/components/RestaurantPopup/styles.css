@@ -1,0 +1,25 @@
+.restaurant-map-popup .leaflet-popup-tip,
+.restaurant-map-popup .leaflet-popup-content-wrapper {
+  background: var(--color-secondary);
+  padding-right: 0;
+  padding-left: 0;
+}
+
+.restaurant-popup {
+  min-width: 64px;
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background: var(--color-secondary);
+}
+
+.restaurant-popup p {
+  font: 500 1rem Poppins, sans-serif;
+  color: var(--color-text);
+  margin-right: 4px;
+}
+
+.restaurant-popup img {
+  max-width: 32px;
+}
