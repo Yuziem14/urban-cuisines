@@ -1,0 +1,35 @@
+#root {
+  flex-direction: column;
+}
+
+#top-bar {
+  background: var(--color-primary-dark);
+  border-bottom: solid 2px var(--color-primary-darker);
+  height: 64px;
+  max-height: 72px;
+}
+
+#top-bar .wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  height: 100%;
+}
+
+#top-bar a {
+  text-decoration: none;
+}
+
+#top-bar a img {
+  margin: auto 0;
+  width: 3.2rem;
+}
+
+#top-bar p {
+  font: 500 1.6rem Poppins, sans-serif;
+}
+
+#top-bar p + a img {
+  width: 2.4rem;
+}
