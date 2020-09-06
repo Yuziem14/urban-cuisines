@@ -1,0 +1,186 @@
+#page-find {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.wrapper {
+  padding: 0 24px;
+}
+
+#page-find header {
+  padding-top: 16px;
+  background: var(--color-primary);
+}
+
+#page-find header h1 {
+  font: 500 2.4rem Poppins, sans-serif;
+}
+
+#page-find header img {
+  width: 1.6rem;
+  vertical-align: middle;
+  margin-left: 0.8rem;
+}
+
+#page-find form {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  z-index: 1;
+  margin-top: 32px;
+}
+
+#page-find form button {
+  width: calc(100% - 64px);
+  min-height: 3.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font: 500 1.6rem Poppins, sans-serif;
+  color: var(--color-placeholder);
+  border: none;
+  border-radius: 0.8rem;
+  padding: 0 16px;
+}
+
+#page-find form button[type='submit'] {
+  max-width: 5.6rem;
+  text-align: center;
+  background: var(--color-button);
+  padding: 0;
+}
+
+#page-find form button[type='submit'] img {
+  width: 2.4rem;
+  margin: 0 auto;
+}
+
+#page-find main {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+#page-find .tags {
+  --translate-y: -8px;
+  display: flex;
+  background: var(--color-secondary);
+  border: none;
+  border-top-right-radius: 0.8rem;
+  border-top-left-radius: 0.8rem;
+  padding-top: 48px;
+  padding-bottom: 32px;
+  margin-bottom: var(--translate-y);
+  transform: translateY(var(--translate-y));
+}
+
+#page-find .tags > p {
+  font: 700 1.6rem Montserrat, sans-serif;
+  line-height: 2.4rem;
+  color: var(--color-text);
+  margin-right: 0.8rem;
+}
+
+#page-find .tags > div {
+  max-width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 0.4rem;
+  list-style: none;
+}
+
+#page-find .restaurants {
+  --translate-y: -8px;
+  flex: 1;
+  background: var(--color-button);
+  border-top-right-radius: 0.8rem;
+  border-top-left-radius: 0.8rem;
+  padding-top: 32px;
+  margin-bottom: var(--translate-y);
+  transform: translateY(var(--translate-y));
+}
+
+#page-find .results {
+  display: flex;
+  align-items: center;
+  font: 500 1.6rem var(--color-text) Poppins, sans-serif;
+  margin-bottom: 3.2rem;
+}
+
+#page-find .results img {
+  margin-right: 1.6rem;
+}
+
+#page-find #tags-modal div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 24px;
+}
+
+#page-find #tags-modal h1 {
+  font: 500 3.2rem Poppins, sans-serif;
+  color: var(--color-primary);
+  line-height: 3.2rem;
+}
+
+#page-find #tags-modal section {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 0.8rem;
+  margin: 3.2rem 0 5.6rem 0;
+}
+
+#page-find #tags-modal .close-modal {
+  width: 100%;
+  max-width: 160px;
+  min-height: 32px;
+  border: none;
+  border-radius: 0.8rem;
+  background: var(--color-button);
+}
+
+#page-find #tags-modal .close-modal svg {
+  width: 2.4rem;
+  vertical-align: middle;
+  margin-left: 0.8rem;
+}
+
+@media (max-width: 328px) {
+  #page-find .tags > div {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 432px) {
+  #page-find .tags > div {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (min-width: 768px) {
+  #page-find .wrapper {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  #page-find header {
+    padding-bottom: 64px;
+  }
+
+  #page-find header form,
+  #page-find main .wrapper {
+    padding-left: 96px;
+    padding-right: 96px;
+  }
+
+  #page-find .tags {
+    --translate-y: -80px;
+  }
+
+  #page-find .tags > div {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
