@@ -62,8 +62,6 @@ function Find() {
       navigator.geolocation.getCurrentPosition(({ coords }) => {
         setInitialPosition([coords.latitude, coords.longitude]);
       });
-    } else {
-      alert('Shit, doesnt support it');
     }
   }, []);
 
