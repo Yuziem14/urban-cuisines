@@ -1,4 +1,5 @@
 import React, { useState, useEffect, FormEvent } from 'react';
+import { useHistory } from 'react-router-dom';
 
 import { Map, Marker, RestaurantIcon } from '../../components/Map';
 import RestaurantPopup from '../../components/RestaurantPopup';
@@ -26,6 +27,7 @@ function Find() {
   const [selectedTags, setSelectedTags] = useState<Tag[]>([]);
   const [restaurants, setRestaurants] = useState<Restaurant[]>([]);
   const [showModal, setShowModal] = useState(false);
+  const history = useHistory();
 
   function toggleModal() {
     setShowModal(!showModal);
@@ -55,6 +57,10 @@ function Find() {
       .then(({ data }) => {
         setRestaurants(data);
       });
+  }
+
+  function handleGoToRestaurant(id: number) {
+    return history.push(`/restaurants/${id}`);
   }
 
   useEffect(() => {
@@ -128,7 +134,11 @@ function Find() {
                   icon={RestaurantIcon}
                   position={[latitude, longitude]}
                 >
-                  <RestaurantPopup name={name} logo_url={logo_url}>
+                  <RestaurantPopup
+                    onClick={() => handleGoToRestaurant(id)}
+                    name={name}
+                    logo_url={logo_url}
+                  >
                     <></>
                   </RestaurantPopup>
                 </Marker>
