@@ -1,4 +1,8 @@
 function castStringAsArray(str = '', separateBy = ',') {
+  if (!str) {
+    return []
+  }
+
   const array = str
     .replace(/\s+/g, ' ')
     .split(separateBy)
