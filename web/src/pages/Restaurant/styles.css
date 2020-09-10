@@ -1,0 +1,127 @@
+#restaurant-loading {
+  background: var(--color-primary);
+  font: 500 2.4rem Poppins, sans-serif;
+}
+#restaurant {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+#restaurant .wrapper {
+  padding: 0 16px;
+}
+
+#restaurant header {
+  position: relative;
+  background: var(--color-primary);
+  padding: 120px 0;
+  z-index: 1;
+}
+
+#restaurant main {
+  --offset-y: -96px;
+  display: flex;
+  flex: 1;
+  position: relative;
+  z-index: 2;
+  transform: translateY(var(--offset-y));
+  margin-bottom: var(--offset-y);
+}
+
+#restaurant main .wrapper {
+  --vertical-padding: 2.4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  background: var(--color-secondary);
+  border-top-left-radius: 0.8rem;
+  border-top-right-radius: 0.8rem;
+  padding-left: var(--vertical-padding);
+  padding-right: var(--vertical-padding);
+}
+
+#restaurant main .logo {
+  --logo-size: 12.8rem;
+  --logo-offset-y: calc(var(--logo-size) / 2 * -1);
+  min-width: var(--logo-size);
+  min-height: var(--logo-size);
+  background: no-repeat center / cover;
+  background-color: var(--color-button);
+  border-radius: 50%;
+  transform: translateY(var(--logo-offset-y));
+  margin-bottom: var(--logo-offset-y);
+}
+
+#restaurant main h1 {
+  font: 500 2.4rem Poppins, sans-serif;
+  color: var(--color-text);
+  margin-top: 1.6rem;
+  margin-bottom: 0.8rem;
+}
+
+#restaurant main .tags {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 0.8rem;
+  margin-bottom: 2.4rem;
+}
+
+#restaurant main .description,
+#restaurant main .address,
+#restaurant main button {
+  align-self: stretch;
+}
+
+#restaurant main .description {
+  margin-bottom: 2.4rem;
+  font: 500 1.6rem Poppins, sans-serif;
+}
+
+#restaurant main .address {
+  margin-bottom: 3.2rem;
+}
+
+#restaurant main .address p {
+  font: 500 1.6rem Poppins, sans-serif;
+  margin-bottom: 1.6rem;
+}
+
+#restaurant main .address #map .leaflet-container {
+  min-height: 208px;
+  margin-bottom: 0;
+}
+
+#restaurant main .whatsapp-button {
+  width: 100%;
+  min-height: 4.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font: 700 1.6rem Montserrat, sans-serif;
+  color: var(--color-text);
+  text-align: center;
+  text-decoration: none;
+  background: var(--color-whatsapp);
+  border: 0;
+  border-radius: 0.8rem;
+  cursor: pointer;
+  transition: background 0.2s;
+  margin-bottom: 1.6rem;
+}
+
+#restaurant main .whatsapp-button:hover {
+  background: var(--color-whatsapp-dark);
+}
+
+#restaurant main .whatsapp-button svg {
+  vertical-align: middle;
+  margin-right: 0.8rem;
+}
+
+@media (min-width: 768px) {
+  #restaurant main .wrapper {
+    --vertical-padding: 7.2rem;
+  }
+}
