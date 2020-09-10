@@ -7,6 +7,9 @@ export interface Tag {
 export interface Restaurant {
   id: number;
   name: string;
+  description?: string;
+  phone_number?: string;
+  address?: string;
   logo_url: string;
   latitude: number;
   longitude: number;
