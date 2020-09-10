@@ -17,6 +17,7 @@ export const TagItem: React.FC<TagProps> = ({
 }) => {
   return (
     <button
+      type='button'
       onClick={e => {
         onSelect(e);
       }}
