@@ -21,7 +21,7 @@ const Registered: React.FC<RegisteredProps> = ({
     setTimeout(() => {
       history.push(goTo);
     }, timeOut);
-  }, []);
+  }, [history, goTo, timeOut]);
 
   return (
     <Modal id='page-registered' isVisible>
