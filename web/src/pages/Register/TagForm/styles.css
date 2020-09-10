@@ -1,0 +1,41 @@
+#page-register header .wrapper {
+  margin-bottom: 0 !important;
+}
+
+#tags-form {
+  margin-bottom: 24px;
+}
+
+#tags-form h1 {
+  font: 700 1.6rem Poppins, sans-serif;
+  color: var(--color-text);
+  text-align: center;
+  margin-top: 0.8rem;
+  margin-bottom: 1.6rem;
+}
+
+#tags-form .input-block:first-of-type:focus-within::after {
+  height: 0;
+}
+
+#tags-form .input-block label[for='tags'] {
+  margin-bottom: 16px;
+}
+
+#tags-form .tag-selector,
+#tags-form .custom-tags {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 16px;
+}
+
+#tags-form .custom-tags {
+  margin-top: 16px;
+}
+
+@media (min-width: 768px) {
+  #tags-form .tag-selector,
+  #tags-form .custom-tags {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

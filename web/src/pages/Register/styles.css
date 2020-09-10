@@ -1,0 +1,194 @@
+#page-register {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+#page-register .wrapper {
+  padding: 0 16px;
+}
+
+#page-register header {
+  --offset-y: 32px;
+  position: relative;
+  background: var(--color-primary);
+  padding-top: 32px;
+  padding-bottom: calc(var(--offset-y) + 32px);
+  transform: translateY(var(--offset-y));
+  margin-top: calc(var(--offset-y) * -1);
+  z-index: 1;
+}
+
+#page-register header .wrapper {
+  margin-bottom: var(--offset-y);
+}
+
+#page-register header h1 {
+  font: 500 2.4rem Poppins, sans-serif;
+  color: var(--color-text);
+}
+
+#page-register main {
+  display: flex;
+  flex: 1;
+  position: relative;
+  z-index: 2;
+}
+
+#page-register main .wrapper {
+  flex: 1;
+  background: var(--color-secondary);
+  border-top-left-radius: 0.8rem;
+  border-top-right-radius: 0.8rem;
+}
+
+#page-register footer {
+  display: flex;
+  min-height: 64px;
+}
+
+#page-register footer .wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--color-primary);
+}
+
+#page-register main .wrapper,
+#page-register footer .wrapper {
+  padding-left: 32px;
+  padding-right: 32px;
+}
+
+#page-register .form-control {
+  border: none;
+  background: transparent;
+}
+
+#page-register .form-control svg {
+  width: 2.4rem;
+  vertical-align: middle;
+  margin-right: 4px;
+}
+
+#page-register .form-control.next svg {
+  transform: rotate(180deg);
+  margin-right: 0;
+  margin-left: 4px;
+}
+
+#page-register .form-status .step {
+  display: inline-block;
+  min-width: 16px;
+  min-height: 16px;
+  border-radius: 50%;
+  margin-right: 1.6rem;
+  border: 1px solid var(--color-button);
+}
+
+#page-register .form-status .step.active {
+  border: none;
+  background: var(--color-button);
+}
+
+#page-register .form-status .step:last-of-type {
+  margin-right: 0;
+}
+
+#page-register .input-block,
+#page-register .textarea-block {
+  position: relative;
+}
+
+#page-register .input-block + .input-block,
+#page-register .input-block + .textarea-block,
+#page-register .input-group + .textarea-block {
+  margin-top: 2.4rem;
+}
+#page-register .input-block label,
+#page-register .textarea-block label {
+  display: block;
+  font: 500 1.6rem Poppins, sans-serif;
+  color: var(--color-text);
+  margin-bottom: 8px;
+}
+
+#page-register .input-block .input-button {
+  display: flex;
+}
+#page-register .input-block .input-button input {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+#page-register .input-block .input-button button {
+  min-width: 5.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  border-top-right-radius: 0.8rem;
+  border-bottom-right-radius: 0.8rem;
+  background: var(--color-button);
+}
+
+#page-register .input-block input {
+  width: 100%;
+  min-height: 3.2rem;
+  font: 500 1.6rem Poppins, sans-serif;
+  border: none;
+  border-radius: 0.8rem;
+  color: var(--color-dark);
+  padding: 8px;
+  outline: 0;
+}
+
+#page-register .input-block input::placeholder {
+  color: var(--color-placeholder);
+  letter-spacing: 2px;
+}
+
+#page-register .textarea-block textarea {
+  width: 100%;
+  font: 500 1.6rem Poppins, sans-serif;
+  color: var(--color-dark);
+  border: none;
+  border-radius: 0.8rem;
+  padding: 8px;
+  outline: 0;
+  resize: vertical;
+}
+
+#page-register .input-block:focus-within::after {
+  content: '';
+  width: calc(100% - 3.2rem);
+  height: 2px;
+  position: absolute;
+  left: 1.6rem;
+  right: 1.6rem;
+  bottom: 0;
+  background-color: var(--color-primary);
+}
+
+#page-register .textarea-block:focus-within::after {
+  content: '';
+  width: calc(100% - 3.2rem);
+  height: 2px;
+  position: absolute;
+  left: 1.6rem;
+  right: 1.6rem;
+  bottom: 6px;
+  background-color: var(--color-primary);
+}
+
+#page-register .input-block.with-input-button:focus-within::after,
+#page-register .textarea-block.with-input-button:focus-within::after {
+  width: calc(100% - 3.2rem - 5.6rem);
+}
+
+@media (min-width: 768px) {
+  #page-register main .wrapper {
+    padding: 0 80px;
+  }
+}
